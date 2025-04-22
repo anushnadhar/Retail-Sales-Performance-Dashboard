@@ -22,16 +22,12 @@ SOURCE - https://www.kaggle.com/datasets/truongdai/tableau-sample-superstore
 
 Data Cleaning
 
-* The column 'kmDriven' is in units km. Each entry had the string ‘km’ at the end of the
-values. The unnecessary string was removed.
-* Converted 'kmDriven' into miles and renamed the column to ‘distDriven (miles)’.
-* The 'distDriven (miles)' column had 47 missing (blank) values. These will need to be
-handled to avoid issues in further calculations. Removed blank/null values from the
-‘distDriven (miles)’ column.
-* No other columns have null values, ensuring data integrity for those fields.
-* Column ‘AskPrice’ had special characters (â‚¹ ) in front of each price. Cleaned data by
-removing the ‘â‚¹’ from each price.
-* Column ‘AskPrice’unit is converted to Million Rupees by dividing by 1,000,000.
+Used Python code (data_cleaning.py) to clean data in the original downloaded dataset.
+* Handled Missing and Duplicate Values: Removed all rows containing null values and eliminated duplicate rows.
+* Converted Date Columns: Transformed 'Order Date' and 'Ship Date' columns to datetime format using pd.to_datetime() with dayfirst=True to correctly interpret date formats.
+* Standardized Column Names: Converted all column names to lowercase for consistency and easier referencing.
+* Created New Derived Columns: Calculated 'profit margin' as the ratio of profit to sales. Extracted 'order year' and 'order month' from the order date for time-based analysis.
+* Exported Cleaned Data: Saved the cleaned and enriched dataset to a new CSV file named 'Sample_Superstore.csv' without the index column.
 
 ## Tableau Visualization
 
